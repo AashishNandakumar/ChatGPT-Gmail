@@ -1,0 +1,24 @@
+{
+  "name": "ChatGPT-Gmail",
+  "version": "1.0.0",
+  "description": "This is an extension which integrates chatGPT and G-mail(pls, recquires a tab having chat-gpt open)",
+  "manifest_version": 3,
+  "author": "Aashish Nandakumar",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["gmail.js"]
+    },
+    {
+      "matches": ["https://chat.openai.com/*"],
+      "js": ["gpt.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["https://mail.google.com/*", "https://chat.openai.com/*"]
+}
